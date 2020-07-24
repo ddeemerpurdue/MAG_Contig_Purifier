@@ -1,7 +1,11 @@
 '''
 Program designed to take in the raw input from the fastANI snakemake
-pipeline and standardize it with bin information from RefineM output.
+pipeline and standardize it with bin information.
 Input requires a tab-delimited list of the binfiles as well.
+Note: Each bin to node identification file (1 per sample) NEEDS to be
+labeled in the format: <sample>.*
+where <sample> matches the sample completeley in the ANI file.
+
 Example useage:
 $ python add_bins.py -a ani.txt -o out.txt -b bin1.txt bin2.txt
 
@@ -64,7 +68,6 @@ def append_bins_to_ani(binfile, anifile, output):
                 if quer != refer:
                     quer_node = line[0].split('/')[2].rsplit('.', 1)[0]
                     reference_node = line[1].split('/')[2].rsplit('.', 1)[0]
-                    print(f"Qnode: {quer_node}\tRNode: {reference_node}")
                     ani = line[2]
                     orths = line[3]
                     total = line[4].strip()
