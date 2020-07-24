@@ -4,7 +4,7 @@ a standardized ANI file, and the sample name (column 0 sample in
 ANI file). Output are {sample}.{bin}.fasta files.
 
 Example usage:
-$ python recycledBinFastaWriter.py -r repatriatedFile.txt -s assemblyFile.fasta -q sampleName
+$ python recycledBinFastaWriter.py -r repatriatedFile.txt -s assemblyFile.fasta -q sampleName -d outFastaDirectory
 
 '''
 
@@ -38,7 +38,7 @@ def get_contig_names_from_recycled(repat, sample):
     return contig_names
 
 
-def write_to_fasta(repat, sample, assembly):
+def write_to_fasta(repat, sample, assembly, outdir):
     '''
     Function that takes searches an assembly based on a dictionary
     with node identifiers as keys and write a new fasta file
@@ -48,7 +48,7 @@ def write_to_fasta(repat, sample, assembly):
         line = assem.readline().strip()
         while line:
             if (line.startswith('>') and line in seqdic):
-                writefile = f"{sample}.{seqdic[line][0]}.fasta"
+                writefile = f"{outdir}/{sample}.{seqdic[line][0]}.fasta"
                 with open(writefile, 'a') as out:
                     out.write(line + '\n')
                     line = assem.readline()
@@ -90,10 +90,11 @@ if __name__ == "__main__":
                         required=True)
     parser.add_argument("-s", "--Assembly", help="Raw Assembly", required=True)
     parser.add_argument("-q", "--Query", help="Query Sample", required=True)
+    parser.add_argument("-d", "--Outdir", help="Output directory", required=True)
     parser.add_argument("-o", "--OldANI", help="Original ANI file",
                         required=False)
     argument = parser.parse_args()
-    write_to_fasta(argument.Repat, argument.Query, argument.Assembly)
+    write_to_fasta(argument.Repat, argument.Query, argument.Assembly, argument.Outdir)
     if argument.OldANI:
         write_new_ani(argument.Repat, argument.Query, argument.OldANI)
     else:
