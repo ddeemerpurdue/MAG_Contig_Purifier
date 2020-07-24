@@ -9,7 +9,7 @@ where <sample> matches the sample completeley in the ANI file.
 Example useage:
 $ python add_bins.py -a ani.txt -o out.txt -b bin1.txt bin2.txt
 
-Note: bin files need to be in the specified format: sample.Bins.txt
+Note: bin files need to be in the specified format: sample.bins.txt
 '''
 
 import argparse
