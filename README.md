@@ -13,7 +13,7 @@ Starting point:
 - The bin_name should be in the format: "Bin.[number]"
 - The contig_name should be in the format: ">[contig_name]"
 
-
+### Step 0: Standardize all inputs
 ### Step 1a: Remove contamination from bins based on CATBAT annotation scores
 ### Step 1b: Add contigs into bins based on CATBAT annotation scores
 ### Step 2: Add contigs into bins based on ANI relations across samples
