@@ -32,7 +32,7 @@ def read_multiple_fasta(files):
         the bin files are name!
         '''
         bin_id = os.path.basename(file)
-        bin_id = str(file).split('.')[0]
+        bin_id = str(file).rsplit('.', 1)[0]
         deflines = return_deflines(file)
         master_dict[bin_id] = deflines
     return master_dict
@@ -41,7 +41,7 @@ def read_multiple_fasta(files):
 def write_fa_dict(files, savename):
     """ A function to write .csv values of .fasta output """
     master = read_multiple_fasta(files)
-    header = f"Contig\tBin\n"
+    header = f"Bin\tContig\n"
     with open(savename, 'w') as o:
         o.write(header)  # First row (keys of dict)
         for bin_id, deflines in master.items():
