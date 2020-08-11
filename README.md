@@ -14,10 +14,10 @@ Starting point:
 - The contig_name should be in the format: ">[contig_name]"
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Step 1a: Remove contamination from bins based on CATBAT annotation scores
-# Step 1b: Add contigs into bins based on CATBAT annotation scores
-# Step 2: Add contigs into bins based on ANI relations across samples
-# Step 3: Merge bins together based on multiple lines of evidence:
+### Step 1a: Remove contamination from bins based on CATBAT annotation scores
+### Step 1b: Add contigs into bins based on CATBAT annotation scores
+### Step 2: Add contigs into bins based on ANI relations across samples
+### Step 3: Merge bins together based on multiple lines of evidence:
 a. Shared taxonomy
 b. ANI patterns across samples
 c. Non-overlapping gene content
