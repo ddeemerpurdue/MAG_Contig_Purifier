@@ -1,7 +1,8 @@
 '''
-Note - this can be combined with the gff)mine program in the future!!!!!
+Note - this can be combined with the gff_mine program in the future!!!!!
 Script designed to take in a file created from the gff_mine.py script and produce
-the top feature for each bin.
+the top feature for each bin. This script takes in as input the output from gff_mine.py
+with the option --Top specified.
 Example usage:
 $ python writeTopGFFFeaturePerBin.py <inputfeature.txt> <output.txt>
 '''
